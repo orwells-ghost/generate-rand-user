@@ -33,14 +33,14 @@ function parseJSON(res) {
 }
 
 function updateProfile(data){
-    var fullname = data.name.first.capitalize() + ' ' + data.name.last.capitalize();
+    var fullname = capitalize(data.name.first) + ' ' + capitalize(data.name.last);
     fullnameDisplay.innerText = fullname;
     avatar.src = data.picture.large;
     username.innerText = data.login.username;
-    city.innerText = data.location.city.capitalize();
+    city.innerText = capitalize(data.location.city);
     email.innerText = data.email;
 }
 
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
